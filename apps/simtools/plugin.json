@@ -1,0 +1,101 @@
+{
+  "id": "simtools",
+  "name": "Outils sim racing",
+  "category": "apps",
+  "icon": "🧰",
+  "color": "#E65100",
+  "description": "SimHub, Crew Chief, Steam, Discord… les compagnons indispensables d'une session.",
+  "notes": [
+    "Si un programme n'est pas installé à l'emplacement par défaut, modifiez le chemin dans l'action « Lancer un programme »."
+  ],
+  "presets": [
+    {
+      "id": "simhub",
+      "label": "SimHub",
+      "icon": "📊",
+      "color": "#E65100",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "C:\\Program Files (x86)\\SimHub\\SimHubWPF.exe",
+          "skipIfRunning": "SimHubWPF.exe"
+        }
+      ],
+      "activeWhen": {
+        "type": "processRunning",
+        "processName": "SimHubWPF.exe"
+      },
+      "activeStyle": {
+        "color": "#43A047"
+      }
+    },
+    {
+      "id": "crewchief",
+      "label": "Crew Chief",
+      "icon": "🎧",
+      "color": "#283593",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "C:\\Program Files (x86)\\Britton IT Ltd\\CrewChiefV4\\CrewChiefV4.exe",
+          "skipIfRunning": "CrewChiefV4.exe"
+        }
+      ],
+      "activeWhen": {
+        "type": "processRunning",
+        "processName": "CrewChiefV4.exe"
+      },
+      "activeStyle": {
+        "color": "#43A047"
+      }
+    },
+    {
+      "id": "steam",
+      "label": "Steam",
+      "icon": "🎮",
+      "color": "#1B2838",
+      "actions": [
+        {
+          "type": "open",
+          "target": "steam://open/games"
+        }
+      ]
+    },
+    {
+      "id": "discord",
+      "label": "Discord",
+      "icon": "💬",
+      "color": "#5865F2",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "%LOCALAPPDATA%\\Discord\\Update.exe",
+          "args": "--processStart Discord.exe",
+          "skipIfRunning": "Discord.exe"
+        }
+      ],
+      "activeWhen": {
+        "type": "processRunning",
+        "processName": "Discord.exe"
+      },
+      "activeStyle": {
+        "color": "#43A047"
+      }
+    },
+    {
+      "id": "spotify",
+      "label": "Spotify",
+      "icon": "🎵",
+      "color": "#1DB954",
+      "actions": [
+        {
+          "type": "open",
+          "target": "spotify:"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

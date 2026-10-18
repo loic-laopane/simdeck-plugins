@@ -1,0 +1,37 @@
+{
+  "id": "kick",
+  "name": "Kick",
+  "category": "social",
+  "icon": "🟩",
+  "color": "#53FC18",
+  "description": "Raccourcis pour ouvrir Kick dans le navigateur.",
+  "presets": [
+    {
+      "id": "home",
+      "label": "Kick",
+      "icon": "🟩",
+      "color": "#1B5E20",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://kick.com/"
+        }
+      ]
+    },
+    {
+      "id": "dashboard",
+      "label": "Tableau de bord",
+      "icon": "🎛",
+      "color": "#1B5E20",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://dashboard.kick.com/"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

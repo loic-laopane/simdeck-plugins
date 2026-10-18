@@ -1,0 +1,126 @@
+{
+  "id": "msfs2024",
+  "name": "Microsoft Flight Simulator 2024",
+  "category": "flightsim",
+  "icon": "🛫",
+  "color": "#0D47A1",
+  "description": "Lancement de Microsoft Flight Simulator 2024 et page de commandes de vol.",
+  "requires": [
+    "flightsim"
+  ],
+  "notes": [
+    "Version Steam. Pour une version Microsoft Store / Xbox, remplacez l'action « Ouvrir » par le lanceur du jeu."
+  ],
+  "autoSwitch": {
+    "processName": "FlightSimulator2024.exe"
+  },
+  "presets": [
+    {
+      "id": "launch",
+      "label": "Lancer MSFS 2024",
+      "icon": "🛫",
+      "color": "#0D47A1",
+      "actions": [
+        {
+          "type": "open",
+          "target": "steam://rungameid/2537590"
+        }
+      ],
+      "activeWhen": {
+        "type": "processRunning",
+        "processName": "FlightSimulator2024.exe"
+      },
+      "activeStyle": {
+        "color": "#43A047"
+      }
+    }
+  ],
+  "boards": [
+    {
+      "id": "main",
+      "name": "MSFS 2024",
+      "rows": 3,
+      "cols": 5,
+      "buttons": [
+        {
+          "preset": "flightsim/gear",
+          "row": 0,
+          "col": 0
+        },
+        {
+          "preset": "flightsim/flaps_up",
+          "row": 0,
+          "col": 1
+        },
+        {
+          "preset": "flightsim/flaps_down",
+          "row": 0,
+          "col": 2
+        },
+        {
+          "preset": "flightsim/spoilers",
+          "row": 0,
+          "col": 3
+        },
+        {
+          "preset": "flightsim/parking_brake",
+          "row": 0,
+          "col": 4
+        },
+        {
+          "preset": "flightsim/autopilot",
+          "row": 1,
+          "col": 0
+        },
+        {
+          "preset": "flightsim/ap_hdg",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "preset": "flightsim/ap_alt",
+          "row": 1,
+          "col": 2
+        },
+        {
+          "preset": "flightsim/ap_nav",
+          "row": 1,
+          "col": 3
+        },
+        {
+          "preset": "flightsim/atc",
+          "row": 1,
+          "col": 4
+        },
+        {
+          "preset": "flightsim/landing_lights",
+          "row": 2,
+          "col": 0
+        },
+        {
+          "preset": "flightsim/strobe",
+          "row": 2,
+          "col": 1
+        },
+        {
+          "preset": "flightsim/view_cockpit",
+          "row": 2,
+          "col": 2
+        },
+        {
+          "preset": "flightsim/view_external",
+          "row": 2,
+          "col": 3
+        },
+        {
+          "preset": "flightsim/pause",
+          "row": 2,
+          "col": 4
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

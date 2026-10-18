@@ -1,0 +1,88 @@
+{
+  "id": "office",
+  "name": "Bureautique",
+  "category": "apps",
+  "icon": "📝",
+  "color": "#185ABD",
+  "description": "Word, Excel, PowerPoint, Outlook, Bloc-notes, Calculatrice.",
+  "notes": [
+    "Word, Excel, PowerPoint et Outlook nécessitent Microsoft Office."
+  ],
+  "presets": [
+    {
+      "id": "word",
+      "label": "Word",
+      "icon": "📘",
+      "color": "#185ABD",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "winword.exe"
+        }
+      ]
+    },
+    {
+      "id": "excel",
+      "label": "Excel",
+      "icon": "📗",
+      "color": "#107C41",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "excel.exe"
+        }
+      ]
+    },
+    {
+      "id": "powerpoint",
+      "label": "PowerPoint",
+      "icon": "📙",
+      "color": "#C43E1C",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "powerpnt.exe"
+        }
+      ]
+    },
+    {
+      "id": "outlook",
+      "label": "Outlook",
+      "icon": "📧",
+      "color": "#0F6CBD",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "outlook.exe"
+        }
+      ]
+    },
+    {
+      "id": "notepad",
+      "label": "Bloc-notes",
+      "icon": "🗒",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "notepad.exe"
+        }
+      ]
+    },
+    {
+      "id": "calc",
+      "label": "Calculatrice",
+      "icon": "🧮",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "calc.exe"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

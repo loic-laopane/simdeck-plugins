@@ -1,0 +1,49 @@
+{
+  "id": "youtube",
+  "name": "YouTube",
+  "category": "social",
+  "icon": "▶️",
+  "color": "#FF0000",
+  "description": "Raccourcis pour ouvrir YouTube dans le navigateur.",
+  "presets": [
+    {
+      "id": "home",
+      "label": "YouTube",
+      "icon": "▶️",
+      "color": "#FF0000",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.youtube.com/"
+        }
+      ]
+    },
+    {
+      "id": "studio",
+      "label": "YouTube Studio",
+      "icon": "🎬",
+      "color": "#CC0000",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://studio.youtube.com/"
+        }
+      ]
+    },
+    {
+      "id": "subs",
+      "label": "Abonnements",
+      "icon": "📺",
+      "color": "#CC0000",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.youtube.com/feed/subscriptions"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

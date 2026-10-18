@@ -1,0 +1,37 @@
+{
+  "id": "facebook",
+  "name": "Facebook",
+  "category": "social",
+  "icon": "📘",
+  "color": "#1877F2",
+  "description": "Raccourcis pour ouvrir Facebook dans le navigateur.",
+  "presets": [
+    {
+      "id": "home",
+      "label": "Facebook",
+      "icon": "📘",
+      "color": "#1877F2",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.facebook.com/"
+        }
+      ]
+    },
+    {
+      "id": "messenger",
+      "label": "Messenger",
+      "icon": "💬",
+      "color": "#0084FF",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.messenger.com/"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

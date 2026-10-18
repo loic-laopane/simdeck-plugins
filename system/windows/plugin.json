@@ -1,0 +1,430 @@
+{
+  "id": "windows",
+  "name": "Windows",
+  "category": "windows",
+  "icon": "🪟",
+  "color": "#0078D4",
+  "default": true,
+  "description": "Son, multimédia, explorateur, captures, paramètres, verrouillage, veille, redémarrage et arrêt du PC.",
+  "notes": [
+    "Veille, redémarrage et arrêt ne se déclenchent que sur un appui long, pour éviter les accidents."
+  ],
+  "presets": [
+    {
+      "id": "vol_up",
+      "label": "Volume +",
+      "icon": "🔊",
+      "color": "#0078D4",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "volumeup"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "vol_down",
+      "label": "Volume −",
+      "icon": "🔉",
+      "color": "#0078D4",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "volumedown"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "mute",
+      "label": "Muet",
+      "icon": "🔇",
+      "color": "#0078D4",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "volumemute"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "play_pause",
+      "label": "Lecture / pause",
+      "icon": "⏯",
+      "color": "#0078D4",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "mediaplaypause"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "label": "Piste suivante",
+      "icon": "⏭",
+      "color": "#0078D4",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "medianext"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "prev",
+      "label": "Piste précédente",
+      "icon": "⏮",
+      "color": "#0078D4",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "mediaprev"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "sound_settings",
+      "label": "Sortie audio",
+      "icon": "🎧",
+      "color": "#0078D4",
+      "description": "Choisir le périphérique audio.",
+      "actions": [
+        {
+          "type": "open",
+          "target": "ms-settings:sound"
+        }
+      ]
+    },
+    {
+      "id": "volume_mixer",
+      "label": "Mélangeur de volume",
+      "icon": "🎚",
+      "color": "#0078D4",
+      "actions": [
+        {
+          "type": "open",
+          "target": "ms-settings:apps-volume"
+        }
+      ]
+    },
+    {
+      "id": "explorer",
+      "label": "Explorateur",
+      "icon": "📁",
+      "color": "#F9A825",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "win",
+            "e"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "desktop",
+      "label": "Bureau",
+      "icon": "🖥",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "win",
+            "d"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "task_manager",
+      "label": "Gestionnaire des tâches",
+      "icon": "📊",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "esc"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "snip",
+      "label": "Capture d'écran",
+      "icon": "✂️",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "win",
+            "shift",
+            "s"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "clipboard",
+      "label": "Presse-papiers",
+      "icon": "📋",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "win",
+            "v"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "game_bar",
+      "label": "Xbox Game Bar",
+      "icon": "🎮",
+      "color": "#107C10",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "win",
+            "g"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "settings",
+      "label": "Paramètres",
+      "icon": "⚙️",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "open",
+          "target": "ms-settings:"
+        }
+      ]
+    },
+    {
+      "id": "display",
+      "label": "Affichage",
+      "icon": "🖵",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "open",
+          "target": "ms-settings:display"
+        }
+      ]
+    },
+    {
+      "id": "lock",
+      "label": "Verrouiller",
+      "icon": "🔒",
+      "color": "#424242",
+      "actions": [
+        {
+          "type": "command",
+          "command": "rundll32.exe user32.dll,LockWorkStation"
+        }
+      ]
+    },
+    {
+      "id": "sleep",
+      "label": "Veille",
+      "icon": "🌙",
+      "color": "#424242",
+      "description": "Appui long pour mettre le PC en veille.",
+      "actions": [],
+      "longPressActions": [
+        {
+          "type": "command",
+          "command": "rundll32.exe powrprof.dll,SetSuspendState 0,1,0"
+        }
+      ]
+    },
+    {
+      "id": "restart",
+      "label": "Redémarrer",
+      "icon": "🔄",
+      "color": "#B71C1C",
+      "description": "Appui long pour redémarrer le PC.",
+      "actions": [],
+      "longPressActions": [
+        {
+          "type": "command",
+          "command": "shutdown /r /t 0"
+        }
+      ]
+    },
+    {
+      "id": "shutdown",
+      "label": "Éteindre le PC",
+      "icon": "⏻",
+      "color": "#B71C1C",
+      "description": "Appui long pour éteindre le PC.",
+      "actions": [],
+      "longPressActions": [
+        {
+          "type": "command",
+          "command": "shutdown /s /t 0"
+        }
+      ]
+    }
+  ],
+  "boards": [
+    {
+      "id": "main",
+      "name": "Windows",
+      "rows": 4,
+      "cols": 5,
+      "buttons": [
+        {
+          "preset": "vol_down",
+          "row": 0,
+          "col": 0
+        },
+        {
+          "preset": "vol_up",
+          "row": 0,
+          "col": 1
+        },
+        {
+          "preset": "mute",
+          "row": 0,
+          "col": 2
+        },
+        {
+          "preset": "sound_settings",
+          "row": 0,
+          "col": 3
+        },
+        {
+          "preset": "volume_mixer",
+          "row": 0,
+          "col": 4
+        },
+        {
+          "preset": "prev",
+          "row": 1,
+          "col": 0
+        },
+        {
+          "preset": "play_pause",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "preset": "next",
+          "row": 1,
+          "col": 2
+        },
+        {
+          "preset": "explorer",
+          "row": 1,
+          "col": 3
+        },
+        {
+          "preset": "desktop",
+          "row": 1,
+          "col": 4
+        },
+        {
+          "preset": "task_manager",
+          "row": 2,
+          "col": 0
+        },
+        {
+          "preset": "snip",
+          "row": 2,
+          "col": 1
+        },
+        {
+          "preset": "clipboard",
+          "row": 2,
+          "col": 2
+        },
+        {
+          "preset": "game_bar",
+          "row": 2,
+          "col": 3
+        },
+        {
+          "preset": "settings",
+          "row": 2,
+          "col": 4
+        },
+        {
+          "preset": "lock",
+          "row": 3,
+          "col": 0
+        },
+        {
+          "preset": "sleep",
+          "row": 3,
+          "col": 1
+        },
+        {
+          "preset": "restart",
+          "row": 3,
+          "col": 2
+        },
+        {
+          "preset": "shutdown",
+          "row": 3,
+          "col": 3
+        },
+        {
+          "preset": "display",
+          "row": 3,
+          "col": 4
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "x",
+  "name": "X (Twitter)",
+  "category": "social",
+  "icon": "𝕏",
+  "color": "#000000",
+  "description": "Raccourcis pour ouvrir X (Twitter) dans le navigateur.",
+  "presets": [
+    {
+      "id": "home",
+      "label": "X",
+      "icon": "𝕏",
+      "color": "#000000",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://x.com/home"
+        }
+      ]
+    },
+    {
+      "id": "post",
+      "label": "Nouveau post",
+      "icon": "✏️",
+      "color": "#000000",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://x.com/compose/post"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

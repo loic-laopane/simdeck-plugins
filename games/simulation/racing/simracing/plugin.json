@@ -1,0 +1,882 @@
+{
+  "id": "simracing",
+  "name": "Sim racing – commandes communes",
+  "category": "simracing",
+  "icon": "🏁",
+  "color": "#E53935",
+  "default": true,
+  "description": "Toutes les commandes utiles en course, compatibles avec tous les simulateurs : limiteur, contact, phares, ABS, TC, répartiteur, cartographie, caméras, radio…",
+  "notes": [
+    "Ces touches utilisent le schéma SimDeck (F13 à F24, combinées avec Ctrl / Maj / Alt) : des touches absentes des claviers, donc sans conflit. Associez-les une fois dans les contrôles du jeu (cliquez sur l'action dans le jeu puis appuyez sur la touche SimDeck avec « ▶ Tester »), ou remplacez-les par vos propres touches."
+  ],
+  "presets": [
+    {
+      "id": "pit_limiter",
+      "label": "Limiteur",
+      "icon": "🚦",
+      "color": "#E53935",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f13"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "pit_request",
+      "label": "Demande stand",
+      "icon": "🅿",
+      "color": "#F57C00",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f14"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "ignition",
+      "label": "Contact",
+      "icon": "🔑",
+      "color": "#F9A825",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f15"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "starter",
+      "label": "Démarreur",
+      "icon": "⚡",
+      "color": "#F9A825",
+      "description": "Maintenir la touche pour démarrer le moteur.",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f16"
+          ],
+          "mode": "down",
+          "holdMs": 60
+        }
+      ],
+      "releaseActions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f16"
+          ],
+          "mode": "up",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "headlights",
+      "label": "Phares",
+      "icon": "💡",
+      "color": "#F9A825",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f17"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "flash",
+      "label": "Appel de phares",
+      "icon": "🔦",
+      "color": "#F9A825",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f18"
+          ],
+          "mode": "down",
+          "holdMs": 60
+        }
+      ],
+      "releaseActions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f18"
+          ],
+          "mode": "up",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "wipers",
+      "label": "Essuie-glaces",
+      "icon": "🌧",
+      "color": "#1E88E5",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f19"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "rain_light",
+      "label": "Feu pluie",
+      "icon": "🔴",
+      "color": "#E53935",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f20"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "hazards",
+      "label": "Warnings",
+      "icon": "⚠️",
+      "color": "#F57C00",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f21"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "horn",
+      "label": "Klaxon",
+      "icon": "📯",
+      "color": "#424242",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f22"
+          ],
+          "mode": "down",
+          "holdMs": 60
+        }
+      ],
+      "releaseActions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f22"
+          ],
+          "mode": "up",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "drs",
+      "label": "DRS",
+      "icon": "🪽",
+      "color": "#43A047",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f23"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "push_to_pass",
+      "label": "Push to pass",
+      "icon": "⏫",
+      "color": "#43A047",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "f24"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "abs_up",
+      "label": "ABS +",
+      "icon": "🅰",
+      "color": "#1E88E5",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f13"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "abs_down",
+      "label": "ABS −",
+      "icon": "🅰",
+      "color": "#1E88E5",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f14"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "tc_up",
+      "label": "TC +",
+      "icon": "🅣",
+      "color": "#8E24AA",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f15"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "tc_down",
+      "label": "TC −",
+      "icon": "🅣",
+      "color": "#8E24AA",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f16"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "bias_fwd",
+      "label": "Frein AV +",
+      "icon": "⬆",
+      "color": "#00838F",
+      "description": "Répartiteur de freinage vers l'avant.",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f17"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "bias_rear",
+      "label": "Frein AV −",
+      "icon": "⬇",
+      "color": "#00838F",
+      "description": "Répartiteur de freinage vers l'arrière.",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f18"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "map_up",
+      "label": "Carto +",
+      "icon": "⚙️",
+      "color": "#424242",
+      "description": "Cartographie moteur suivante.",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f19"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "map_down",
+      "label": "Carto −",
+      "icon": "⚙️",
+      "color": "#424242",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f20"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "ers_up",
+      "label": "ERS +",
+      "icon": "🔋",
+      "color": "#43A047",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f21"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "ers_down",
+      "label": "ERS −",
+      "icon": "🔋",
+      "color": "#43A047",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f22"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "arb_front",
+      "label": "Anti-roulis AV",
+      "icon": "🔩",
+      "color": "#00838F",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f23"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "arb_rear",
+      "label": "Anti-roulis AR",
+      "icon": "🔩",
+      "color": "#00838F",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "f24"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "look_left",
+      "label": "Regard gauche",
+      "icon": "👈",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f13"
+          ],
+          "mode": "down",
+          "holdMs": 60
+        }
+      ],
+      "releaseActions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f13"
+          ],
+          "mode": "up",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "look_right",
+      "label": "Regard droite",
+      "icon": "👉",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f14"
+          ],
+          "mode": "down",
+          "holdMs": 60
+        }
+      ],
+      "releaseActions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f14"
+          ],
+          "mode": "up",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "look_back",
+      "label": "Regard arrière",
+      "icon": "🔙",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f15"
+          ],
+          "mode": "down",
+          "holdMs": 60
+        }
+      ],
+      "releaseActions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f15"
+          ],
+          "mode": "up",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "camera",
+      "label": "Caméra",
+      "icon": "🎥",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f16"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "mirror",
+      "label": "Rétroviseur",
+      "icon": "🪞",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f17"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "hud",
+      "label": "HUD",
+      "icon": "📟",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f18"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "replay",
+      "label": "Replay",
+      "icon": "⏪",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f19"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "radio",
+      "label": "Radio (PTT)",
+      "icon": "🎙",
+      "color": "#5E35B1",
+      "description": "Push-to-talk : maintenir pour parler.",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f20"
+          ],
+          "mode": "down",
+          "holdMs": 60
+        }
+      ],
+      "releaseActions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f20"
+          ],
+          "mode": "up",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "vr_recenter",
+      "label": "Recentrer VR",
+      "icon": "🥽",
+      "color": "#5E35B1",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f21"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "screenshot",
+      "label": "Capture",
+      "icon": "📷",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f22"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "mfd_next",
+      "label": "Écran MFD",
+      "icon": "🖥",
+      "color": "#424242",
+      "description": "Page suivante de l'écran multifonction / black box.",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f23"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "mfd_select",
+      "label": "Valider MFD",
+      "icon": "✅",
+      "color": "#424242",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "shift",
+            "f24"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "pause",
+      "label": "Pause",
+      "icon": "⏸",
+      "color": "#424242",
+      "description": "Touche Échap : pause / menu dans la plupart des jeux.",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "esc"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    }
+  ],
+  "boards": [
+    {
+      "id": "race",
+      "name": "Course",
+      "rows": 3,
+      "cols": 5,
+      "buttons": [
+        {
+          "preset": "pit_limiter",
+          "row": 0,
+          "col": 0
+        },
+        {
+          "preset": "pit_request",
+          "row": 0,
+          "col": 1
+        },
+        {
+          "preset": "headlights",
+          "row": 0,
+          "col": 2
+        },
+        {
+          "preset": "wipers",
+          "row": 0,
+          "col": 3
+        },
+        {
+          "preset": "hazards",
+          "row": 0,
+          "col": 4
+        },
+        {
+          "preset": "abs_down",
+          "row": 1,
+          "col": 0
+        },
+        {
+          "preset": "abs_up",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "preset": "tc_down",
+          "row": 1,
+          "col": 2
+        },
+        {
+          "preset": "tc_up",
+          "row": 1,
+          "col": 3
+        },
+        {
+          "preset": "ignition",
+          "row": 1,
+          "col": 4
+        },
+        {
+          "preset": "bias_rear",
+          "row": 2,
+          "col": 0
+        },
+        {
+          "preset": "bias_fwd",
+          "row": 2,
+          "col": 1
+        },
+        {
+          "preset": "map_down",
+          "row": 2,
+          "col": 2
+        },
+        {
+          "preset": "map_up",
+          "row": 2,
+          "col": 3
+        },
+        {
+          "preset": "starter",
+          "row": 2,
+          "col": 4
+        }
+      ]
+    },
+    {
+      "id": "cockpit",
+      "name": "Cockpit & caméras",
+      "rows": 3,
+      "cols": 5,
+      "buttons": [
+        {
+          "preset": "look_left",
+          "row": 0,
+          "col": 0
+        },
+        {
+          "preset": "look_back",
+          "row": 0,
+          "col": 1
+        },
+        {
+          "preset": "look_right",
+          "row": 0,
+          "col": 2
+        },
+        {
+          "preset": "camera",
+          "row": 0,
+          "col": 3
+        },
+        {
+          "preset": "mirror",
+          "row": 0,
+          "col": 4
+        },
+        {
+          "preset": "radio",
+          "row": 1,
+          "col": 0
+        },
+        {
+          "preset": "hud",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "preset": "replay",
+          "row": 1,
+          "col": 2
+        },
+        {
+          "preset": "screenshot",
+          "row": 1,
+          "col": 3
+        },
+        {
+          "preset": "vr_recenter",
+          "row": 1,
+          "col": 4
+        },
+        {
+          "preset": "flash",
+          "row": 2,
+          "col": 0
+        },
+        {
+          "preset": "rain_light",
+          "row": 2,
+          "col": 1
+        },
+        {
+          "preset": "horn",
+          "row": 2,
+          "col": 2
+        },
+        {
+          "preset": "mfd_next",
+          "row": 2,
+          "col": 3
+        },
+        {
+          "preset": "pause",
+          "row": 2,
+          "col": 4
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

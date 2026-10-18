@@ -1,0 +1,93 @@
+{
+  "id": "kartkraft",
+  "name": "KartKraft",
+  "category": "simracing",
+  "icon": "🛞",
+  "color": "#F9A825",
+  "description": "Lancement de KartKraft et page de commandes prête à l'emploi.",
+  "requires": [
+    "simracing"
+  ],
+  "notes": [
+    "Ces touches utilisent le schéma SimDeck (F13 à F24, combinées avec Ctrl / Maj / Alt) : des touches absentes des claviers, donc sans conflit. Associez-les une fois dans les contrôles du jeu (cliquez sur l'action dans le jeu puis appuyez sur la touche SimDeck avec « ▶ Tester »), ou remplacez-les par vos propres touches.",
+    "Lancez le jeu puis choisissez son processus dans « Bascule automatique » pour activer la page automatiquement."
+  ],
+  "presets": [
+    {
+      "id": "launch",
+      "label": "Lancer KartKraft",
+      "icon": "🛞",
+      "color": "#F9A825",
+      "description": "Lance le jeu via Steam.",
+      "actions": [
+        {
+          "type": "open",
+          "target": "steam://rungameid/406350"
+        }
+      ]
+    }
+  ],
+  "boards": [
+    {
+      "id": "main",
+      "name": "KartKraft",
+      "rows": 3,
+      "cols": 5,
+      "buttons": [
+        {
+          "preset": "simracing/camera",
+          "row": 0,
+          "col": 0
+        },
+        {
+          "preset": "simracing/look_left",
+          "row": 0,
+          "col": 1
+        },
+        {
+          "preset": "simracing/look_back",
+          "row": 0,
+          "col": 2
+        },
+        {
+          "preset": "simracing/look_right",
+          "row": 0,
+          "col": 3
+        },
+        {
+          "preset": "simracing/replay",
+          "row": 0,
+          "col": 4
+        },
+        {
+          "preset": "simracing/hud",
+          "row": 1,
+          "col": 0
+        },
+        {
+          "preset": "simracing/mirror",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "preset": "simracing/screenshot",
+          "row": 1,
+          "col": 2
+        },
+        {
+          "preset": "simracing/vr_recenter",
+          "row": 1,
+          "col": 3
+        },
+        {
+          "preset": "simracing/pause",
+          "row": 1,
+          "col": 4
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}
