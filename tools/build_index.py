@@ -60,6 +60,7 @@ INT_FIELDS = ("ms", "holdMs", "count", "delayMs", "timeoutMs", "pollMs", "macro"
 STR_FIELDS = ("path", "args", "workingDir", "target", "command", "processName", "titleContains", "text",
               "skipIfRunning", "name", "pageId", "comment")
 ID_RE = re.compile(r"[a-z0-9][a-z0-9_-]{0,40}")
+PRESET_ID_RE = re.compile(r"[A-Za-z0-9_-]{1,64}")
 VERSION_RE = re.compile(r"\d+\.\d+\.\d+")
 COLOR_RE = re.compile(r"#[0-9A-Fa-f]{6}")
 MAX_GRID = 12
@@ -172,6 +173,8 @@ def load(path: Path, category: str) -> dict:
         pid = preset.get("id") if isinstance(preset, dict) else None
         if not isinstance(pid, str) or pid in seen:
             raise Invalid(f"preset sans identifiant ou en double : {pid}")
+        if not PRESET_ID_RE.fullmatch(pid):
+            raise Invalid(f"identifiant de touche invalide « {pid} » (lettres, chiffres, - et _ ; 64 caractères max)")
         seen.add(pid)
         if not isinstance(preset.get("label"), str) or not preset["label"]:
             raise Invalid(f"{pid} : « label » obligatoire")
