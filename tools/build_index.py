@@ -14,6 +14,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from imageinfo import image_info  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / "index.json"
 SCHEMA = 1
@@ -57,6 +60,7 @@ INT_FIELDS = ("ms", "holdMs", "count", "delayMs", "timeoutMs", "pollMs", "macro"
 STR_FIELDS = ("path", "args", "workingDir", "target", "command", "processName", "titleContains", "text",
               "skipIfRunning", "name", "pageId", "comment")
 ID_RE = re.compile(r"[a-z0-9][a-z0-9_-]{0,40}")
+PRESET_ID_RE = re.compile(r"[A-Za-z0-9_-]{1,64}")
 VERSION_RE = re.compile(r"\d+\.\d+\.\d+")
 COLOR_RE = re.compile(r"#[0-9A-Fa-f]{6}")
 MAX_GRID = 12
@@ -64,6 +68,13 @@ MAX_GRID = 12
 DEFAULT_ALLOWED = {"simracing", "flightsim", "windows"}
 # Actions shown to the user as "what this plugin can do on the PC".
 CAPABILITY_ACTIONS = {"launch", "open", "command", "kill", "text"}
+# Button images: <plugin>/images/<preset id>.png (or @active for the active state)
+IMAGE_RECOMMENDED = 128
+IMAGE_MAX = 256
+IMAGE_MAX_BYTES = 256 * 1024
+IMAGE_FORMATS = {"png": ".png", "webp": ".webp"}
+IGNORED_FILES = {"Thumbs.db", "desktop.ini"}
+IMAGE_NAME_RE = re.compile(r"(?P<preset>[A-Za-z0-9_-]+)(?P<active>@active)?\.(?P<ext>png|webp)")
 
 
 def norm_key(k: str) -> str:
@@ -162,6 +173,8 @@ def load(path: Path, category: str) -> dict:
         pid = preset.get("id") if isinstance(preset, dict) else None
         if not isinstance(pid, str) or pid in seen:
             raise Invalid(f"preset sans identifiant ou en double : {pid}")
+        if not PRESET_ID_RE.fullmatch(pid):
+            raise Invalid(f"identifiant de touche invalide « {pid} » (lettres, chiffres, - et _ ; 64 caractères max)")
         seen.add(pid)
         if not isinstance(preset.get("label"), str) or not preset["label"]:
             raise Invalid(f"{pid} : « label » obligatoire")
@@ -220,8 +233,56 @@ def capabilities(p: dict) -> list[str]:
     return sorted(caps)
 
 
-def build() -> tuple[dict, list[str]]:
-    errors, plugins = [], {}
+def collect_images(p: dict, rel: str, errors: list[str], warnings: list[str]) -> list[dict]:
+    folder = (ROOT / rel).parent / "images"
+    if not folder.is_dir():
+        return []
+    presets = {x["id"] for x in p["presets"]}
+    images, seen = [], set()
+    if folder.is_symlink():
+        errors.append(f"{folder.relative_to(ROOT).as_posix()} : les liens symboliques sont interdits")
+        return []
+    for path in sorted(folder.iterdir()):
+        irel = path.relative_to(ROOT).as_posix()
+        if path.name.startswith(".") or path.name in IGNORED_FILES:
+            continue  # system files (never committed, see .gitignore)
+        if path.is_symlink():
+            errors.append(f"{irel} : les liens symboliques sont interdits")
+            continue
+        m = IMAGE_NAME_RE.fullmatch(path.name)
+        if not m or not path.is_file():
+            errors.append(f"{irel} : nom invalide (attendu <id de touche>.png ou .webp, extension en minuscules, "
+                          "ou <id>@active.png pour l'état actif)")
+            continue
+        if m["preset"] not in presets:
+            errors.append(f"{irel} : aucune touche « {m['preset']} » dans ce plugin")
+            continue
+        state = "active" if m["active"] else "default"
+        if (m["preset"], state) in seen:
+            errors.append(f"{irel} : deux images pour la même touche")
+            continue
+        seen.add((m["preset"], state))
+        data = path.read_bytes()
+        if len(data) > IMAGE_MAX_BYTES:
+            errors.append(f"{irel} : fichier trop lourd ({len(data) // 1024} Ko, maximum {IMAGE_MAX_BYTES // 1024} Ko)")
+            continue
+        info = image_info(data)
+        if not info or IMAGE_FORMATS.get(info[0]) != path.suffix:
+            errors.append(f"{irel} : image PNG ou WebP invalide (ou extension ne correspondant pas au format)")
+            continue
+        _, w, h = info
+        if w > IMAGE_MAX or h > IMAGE_MAX:
+            errors.append(f"{irel} : {w}×{h} px, maximum autorisé {IMAGE_MAX}×{IMAGE_MAX}")
+            continue
+        if w < IMAGE_RECOMMENDED or h < IMAGE_RECOMMENDED:
+            warnings.append(f"{irel} : {w}×{h} px, {IMAGE_RECOMMENDED}×{IMAGE_RECOMMENDED} conseillé pour une meilleure définition")
+        images.append({"preset": m["preset"], "state": state, "path": irel,
+                       "sha256": hashlib.sha256(data).hexdigest(), "size": len(data)})
+    return images
+
+
+def build() -> tuple[dict, list[str], list[str]]:
+    errors, warnings, plugins = [], [], {}
     for folder, category in FOLDERS.items():
         base = ROOT / folder
         if not base.is_dir():
@@ -276,12 +337,20 @@ def build() -> tuple[dict, list[str]]:
             "path": rel,
             "sha256": hashlib.sha256(data).hexdigest(),
             "size": len(data),
+            "images": collect_images(p, rel, errors, warnings),
         })
-    return {"schema": SCHEMA, "plugins": entries}, errors
+    return {"schema": SCHEMA, "plugins": entries}, errors, warnings
+
+
+def content_key(entry: dict) -> tuple:
+    """Everything that users download for a plugin: its manifest and its images."""
+    return entry["sha256"], tuple(sorted((i["path"], i["sha256"]) for i in entry.get("images", [])))
 
 
 def main() -> int:
-    index, errors = build()
+    index, errors, warnings = build()
+    for w in warnings:
+        print(f"AVERTISSEMENT {w}")
     for e in errors:
         print(f"ERREUR {e}")
     if errors:
@@ -292,7 +361,7 @@ def main() -> int:
         old = {e["id"]: e for e in base.get("plugins", [])}
         bumps = [f"{e['path']} : contenu modifié, augmentez « version » (actuellement {e['version']})"
                  for e in index["plugins"]
-                 if e["id"] in old and e["sha256"] != old[e["id"]]["sha256"]
+                 if e["id"] in old and content_key(e) != content_key(old[e["id"]])
                  and version_tuple(e["version"]) <= version_tuple(old[e["id"]]["version"])]
         for b in bumps:
             print(f"ERREUR {b}")
