@@ -2,6 +2,8 @@
 
     python tools/build_index.py           # validate + write index.json
     python tools/build_index.py --check   # validate + fail if index.json is not up to date (CI)
+    python tools/build_index.py --check --base old-index.json
+                                          # + every changed plugin must have a higher version
 """
 
 from __future__ import annotations
@@ -43,11 +45,34 @@ KEYS = (
        "intlbackslash", "volumemute", "volumedown", "volumeup", "medianext", "mediaprev", "mediastop",
        "mediaplaypause"}
 )
-ID_RE = re.compile(r"^[a-z0-9][a-z0-9_-]{0,40}$")
-VERSION_RE = re.compile(r"^\d+\.\d+\.\d+$")
-COLOR_RE = re.compile(r"^#[0-9A-Fa-f]{6}$")
+KEY_ALIASES = {
+    "control": "ctrl", "escape": "esc", "return": "enter", "del": "delete", "ins": "insert", "pgup": "pageup",
+    "pgdn": "pagedown", "windows": "win", "cmd": "win", "altgr": "ralt", "arrowup": "up", "arrowdown": "down",
+    "arrowleft": "left", "arrowright": "right",
+}
+IRACING_PIT_COMMANDS = {"clear", "windshield", "fuel", "lf", "rf", "lr", "rr", "clearTires", "fastRepair",
+                        "clearWindshield", "clearFastRepair", "clearFuel", "tireCompound"}
+IRACING_CHAT_MODES = {"macro", "begin", "reply", "cancel"}
+INT_FIELDS = ("ms", "holdMs", "count", "delayMs", "timeoutMs", "pollMs", "macro")
+STR_FIELDS = ("path", "args", "workingDir", "target", "command", "processName", "titleContains", "text",
+              "skipIfRunning", "name", "pageId", "comment")
+ID_RE = re.compile(r"[a-z0-9][a-z0-9_-]{0,40}")
+VERSION_RE = re.compile(r"\d+\.\d+\.\d+")
+COLOR_RE = re.compile(r"#[0-9A-Fa-f]{6}")
 MAX_GRID = 12
-CAPABILITY_ACTIONS = {"launch": "launch", "open": "open", "command": "command", "kill": "kill"}
+# Only these base plugins may be installed automatically on first start.
+DEFAULT_ALLOWED = {"simracing", "flightsim", "windows"}
+# Actions shown to the user as "what this plugin can do on the PC".
+CAPABILITY_ACTIONS = {"launch", "open", "command", "kill", "text"}
+
+
+def norm_key(k: str) -> str:
+    k = k.strip().lower().replace(" ", "")
+    return KEY_ALIASES.get(k, k)
+
+
+def version_tuple(v: str) -> tuple[int, ...]:
+    return tuple(int(x) for x in v.split("."))
 
 
 class Invalid(Exception):
@@ -62,13 +87,28 @@ def walk(actions, where):
         if not isinstance(a, dict) or a.get("type") not in ACTION_TYPES:
             raise Invalid(f"{here} : type d'action inconnu {a.get('type') if isinstance(a, dict) else a!r}")
         yield a
+        for field in INT_FIELDS:
+            if field in a and (not isinstance(a[field], int) or isinstance(a[field], bool) or a[field] < 0):
+                raise Invalid(f"{here} : « {field} » doit être un entier positif")
+        for field in STR_FIELDS:
+            if field in a and not isinstance(a[field], str):
+                raise Invalid(f"{here} : « {field} » doit être un texte")
         if a["type"] == "hotkey":
             keys = a.get("keys")
-            if not isinstance(keys, list) or not keys:
-                raise Invalid(f"{here} : « keys » doit être une liste non vide")
+            if not isinstance(keys, list) or not keys or not all(isinstance(k, str) for k in keys):
+                raise Invalid(f"{here} : « keys » doit être une liste de touches")
             for k in keys:
-                if k not in KEYS:
+                if norm_key(k) not in KEYS:
                     raise Invalid(f"{here} : touche inconnue « {k} »")
+            if a.get("mode", "press") not in ("press", "down", "up"):
+                raise Invalid(f"{here} : « mode » doit valoir press, down ou up")
+        elif a["type"] == "iracingPit":
+            if a.get("command") not in IRACING_PIT_COMMANDS:
+                raise Invalid(f"{here} : commande de stand iRacing inconnue « {a.get('command')} »")
+            if not isinstance(a.get("value", 0), (int, float)):
+                raise Invalid(f"{here} : « value » doit être un nombre")
+        elif a["type"] == "iracingChat" and a.get("mode", "macro") not in IRACING_CHAT_MODES:
+            raise Invalid(f"{here} : mode de chat iRacing inconnu « {a.get('mode')} »")
         for cond_key in ("condition",):
             if cond_key in a:
                 check_condition(a[cond_key], here)
@@ -93,19 +133,24 @@ def load(path: Path, category: str) -> dict:
         raise Invalid(f"JSON invalide : {exc}")
     if not isinstance(p, dict):
         raise Invalid("le plugin doit être un objet JSON")
-    if p.get("id") != path.parent.name or not ID_RE.match(p.get("id", "")):
+    if p.get("id") != path.parent.name or not ID_RE.fullmatch(str(p.get("id", ""))):
         raise Invalid(f"« id » doit être égal au nom du dossier ({path.parent.name})")
     if p.get("category") != category:
         raise Invalid(f"« category » doit valoir « {category} » dans ce dossier")
     for key in ("name", "description", "icon", "author"):
         if not isinstance(p.get(key), str) or not p[key].strip():
             raise Invalid(f"« {key} » est obligatoire")
-    if not VERSION_RE.match(str(p.get("version", ""))):
+    if not VERSION_RE.fullmatch(str(p.get("version", ""))):
         raise Invalid("« version » doit être de la forme 1.2.3")
-    if not VERSION_RE.match(str(p.get("minAppVersion", ""))):
+    if not VERSION_RE.fullmatch(str(p.get("minAppVersion", ""))):
         raise Invalid("« minAppVersion » doit être de la forme 1.2.3")
-    if not COLOR_RE.match(str(p.get("color", ""))):
+    if not COLOR_RE.fullmatch(str(p.get("color", ""))):
         raise Invalid("« color » doit être de la forme #RRGGBB")
+    if p.get("default") and p["id"] not in DEFAULT_ALLOWED:
+        raise Invalid("« default » est réservé aux plugins de base")
+    auto = p.get("autoSwitch")
+    if auto is not None and not (isinstance(auto, dict) and isinstance(auto.get("processName"), str)):
+        raise Invalid("« autoSwitch » doit être un objet avec « processName »")
     for key in ("notes", "requires"):
         if not isinstance(p.get(key, []), list) or not all(isinstance(x, str) for x in p.get(key, [])):
             raise Invalid(f"« {key} » doit être une liste de textes")
@@ -120,14 +165,22 @@ def load(path: Path, category: str) -> dict:
         seen.add(pid)
         if not isinstance(preset.get("label"), str) or not preset["label"]:
             raise Invalid(f"{pid} : « label » obligatoire")
-        if "color" in preset and not COLOR_RE.match(str(preset["color"])):
-            raise Invalid(f"{pid} : couleur invalide")
+        check_style(preset, pid)
+        if "activeStyle" in preset:
+            if not isinstance(preset["activeStyle"], dict):
+                raise Invalid(f"{pid} : « activeStyle » doit être un objet")
+            check_style(preset["activeStyle"], f"{pid}.activeStyle")
         for key in ("actions", "longPressActions", "releaseActions"):
             list(walk(preset.get(key, []), f"{pid}.{key}"))
         if "activeWhen" in preset:
             check_condition(preset["activeWhen"], f"{pid}.activeWhen")
-    for board in p.get("boards", []):
+    boards = p.get("boards", [])
+    if not isinstance(boards, list) or not all(isinstance(b, dict) for b in boards):
+        raise Invalid("« boards » doit être une liste d'objets")
+    for board in boards:
         bid = board.get("id")
+        if not isinstance(board.get("buttons", []), list):
+            raise Invalid(f"board {bid} : « buttons » doit être une liste")
         rows, cols = board.get("rows"), board.get("cols")
         if not isinstance(bid, str) or not isinstance(rows, int) or not isinstance(cols, int) \
                 or not (1 <= rows <= MAX_GRID and 1 <= cols <= MAX_GRID):
@@ -143,13 +196,27 @@ def load(path: Path, category: str) -> dict:
     return p
 
 
+def check_style(obj: dict, where: str) -> None:
+    """Fields sent to the phone: wrong types would break the app's deck decoding."""
+    for key in ("label", "icon", "image", "textColor", "description"):
+        if key in obj and not isinstance(obj[key], str):
+            raise Invalid(f"{where} : « {key} » doit être un texte")
+    for key in ("color", "textColor"):
+        if key in obj and not COLOR_RE.fullmatch(str(obj[key])):
+            raise Invalid(f"{where} : « {key} » doit être de la forme #RRGGBB")
+    if "fontSize" in obj and (isinstance(obj["fontSize"], bool) or not isinstance(obj["fontSize"], (int, float))):
+        raise Invalid(f"{where} : « fontSize » doit être un nombre")
+    if "showLabel" in obj and not isinstance(obj["showLabel"], bool):
+        raise Invalid(f"{where} : « showLabel » doit valoir true ou false")
+
+
 def capabilities(p: dict) -> list[str]:
     caps = set()
     for preset in p["presets"]:
         for key in ("actions", "longPressActions", "releaseActions"):
             for a in walk(preset.get(key, []), ""):
                 if a["type"] in CAPABILITY_ACTIONS:
-                    caps.add(CAPABILITY_ACTIONS[a["type"]])
+                    caps.add(a["type"])
     return sorted(caps)
 
 
@@ -175,6 +242,9 @@ def build() -> tuple[dict, list[str]]:
         for req in p.get("requires", []):
             if req not in plugins:
                 errors.append(f"{rel} : plugin requis introuvable « {req} »")
+            elif plugins[req][0].get("requires"):
+                # The app installs direct requirements only: no chains.
+                errors.append(f"{rel} : « {req} » a lui-même des dépendances (une seule profondeur autorisée)")
         for board in p.get("boards", []):
             for b in board.get("buttons", []):
                 owner, _, name = b["preset"].rpartition("/")
@@ -217,6 +287,17 @@ def main() -> int:
     if errors:
         return 1
     text = json.dumps(index, ensure_ascii=False, indent=2) + "\n"
+    if "--base" in sys.argv:
+        base = json.loads(Path(sys.argv[sys.argv.index("--base") + 1]).read_text(encoding="utf-8"))
+        old = {e["id"]: e for e in base.get("plugins", [])}
+        bumps = [f"{e['path']} : contenu modifié, augmentez « version » (actuellement {e['version']})"
+                 for e in index["plugins"]
+                 if e["id"] in old and e["sha256"] != old[e["id"]]["sha256"]
+                 and version_tuple(e["version"]) <= version_tuple(old[e["id"]]["version"])]
+        for b in bumps:
+            print(f"ERREUR {b}")
+        if bumps:
+            return 1
     if "--check" in sys.argv:
         if not INDEX.exists() or INDEX.read_text(encoding="utf-8") != text:
             print("index.json n'est pas à jour : lancez `python tools/build_index.py` et commitez le résultat.")

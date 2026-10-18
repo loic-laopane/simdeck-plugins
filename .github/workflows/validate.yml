@@ -9,8 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Index of the base branch (to require version bumps)
+        run: |
+          BASE="${{ github.base_ref || 'main' }}"
+          git show "origin/$BASE:index.json" > "$RUNNER_TEMP/base-index.json" 2>/dev/null \
+            || echo '{"plugins": []}' > "$RUNNER_TEMP/base-index.json"
       - name: Validate plugins and check index.json
-        run: python tools/build_index.py --check
+        run: python tools/build_index.py --check --base "$RUNNER_TEMP/base-index.json"
