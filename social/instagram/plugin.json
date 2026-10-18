@@ -1,0 +1,37 @@
+{
+  "id": "instagram",
+  "name": "Instagram",
+  "category": "social",
+  "icon": "📸",
+  "color": "#E1306C",
+  "description": "Raccourcis pour ouvrir Instagram dans le navigateur.",
+  "presets": [
+    {
+      "id": "home",
+      "label": "Instagram",
+      "icon": "📸",
+      "color": "#E1306C",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.instagram.com/"
+        }
+      ]
+    },
+    {
+      "id": "messages",
+      "label": "Messages",
+      "icon": "✉️",
+      "color": "#C13584",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.instagram.com/direct/inbox/"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

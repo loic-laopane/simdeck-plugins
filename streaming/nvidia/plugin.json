@@ -1,0 +1,80 @@
+{
+  "id": "nvidia",
+  "name": "NVIDIA",
+  "category": "streaming",
+  "icon": "🟩",
+  "color": "#76B900",
+  "description": "Overlay NVIDIA App / GeForce Experience (raccourcis par défaut), panneau de configuration NVIDIA (Surround).",
+  "notes": [
+    "Raccourcis par défaut de l'overlay NVIDIA : Alt+Z (overlay), Alt+F10 (sauver le replay), Alt+F9 (enregistrer)."
+  ],
+  "presets": [
+    {
+      "id": "overlay",
+      "label": "Overlay NVIDIA",
+      "icon": "🟩",
+      "color": "#76B900",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "z"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "replay_save",
+      "label": "Sauver le replay",
+      "icon": "💾",
+      "color": "#558B2F",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f10"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "record",
+      "label": "Enregistrer",
+      "icon": "⏺",
+      "color": "#558B2F",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f9"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "control_panel",
+      "label": "Panneau NVIDIA",
+      "icon": "🖥",
+      "color": "#33691E",
+      "description": "Ouvre le Panneau de configuration NVIDIA (réglage Surround / multi-écrans).",
+      "actions": [
+        {
+          "type": "open",
+          "target": "shell:AppsFolder\\NVIDIACorp.NVIDIAControlPanel_56jybvy8sckqj!NVIDIACorp.NVIDIAControlPanel"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

@@ -1,0 +1,142 @@
+{
+  "id": "ams2",
+  "name": "Automobilista 2",
+  "category": "simracing",
+  "icon": "🇧🇷",
+  "color": "#2E7D32",
+  "description": "Lancement de Automobilista 2 et page de commandes prête à l'emploi.",
+  "requires": [
+    "simracing"
+  ],
+  "notes": [
+    "Ces touches utilisent le schéma SimDeck (F13 à F24, combinées avec Ctrl / Maj / Alt) : des touches absentes des claviers, donc sans conflit. Associez-les une fois dans les contrôles du jeu (cliquez sur l'action dans le jeu puis appuyez sur la touche SimDeck avec « ▶ Tester »), ou remplacez-les par vos propres touches."
+  ],
+  "autoSwitch": {
+    "processName": "AMS2AVX.exe"
+  },
+  "presets": [
+    {
+      "id": "launch",
+      "label": "Lancer Automobilista 2",
+      "icon": "🇧🇷",
+      "color": "#2E7D32",
+      "description": "Lance le jeu via Steam.",
+      "actions": [
+        {
+          "type": "open",
+          "target": "steam://rungameid/1066890"
+        }
+      ],
+      "activeWhen": {
+        "type": "processRunning",
+        "processName": "AMS2AVX.exe"
+      },
+      "activeStyle": {
+        "color": "#43A047",
+        "label": "Automobilista 2 lancé"
+      }
+    },
+    {
+      "id": "quit",
+      "label": "Quitter le jeu",
+      "icon": "⏻",
+      "color": "#424242",
+      "description": "Appui long pour fermer le jeu.",
+      "longPressActions": [
+        {
+          "type": "kill",
+          "processName": "AMS2AVX.exe"
+        }
+      ],
+      "actions": []
+    }
+  ],
+  "boards": [
+    {
+      "id": "main",
+      "name": "Automobilista 2",
+      "rows": 3,
+      "cols": 5,
+      "buttons": [
+        {
+          "preset": "simracing/pit_limiter",
+          "row": 0,
+          "col": 0
+        },
+        {
+          "preset": "simracing/pit_request",
+          "row": 0,
+          "col": 1
+        },
+        {
+          "preset": "simracing/headlights",
+          "row": 0,
+          "col": 2
+        },
+        {
+          "preset": "simracing/wipers",
+          "row": 0,
+          "col": 3
+        },
+        {
+          "preset": "simracing/hazards",
+          "row": 0,
+          "col": 4
+        },
+        {
+          "preset": "simracing/abs_down",
+          "row": 1,
+          "col": 0
+        },
+        {
+          "preset": "simracing/abs_up",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "preset": "simracing/tc_down",
+          "row": 1,
+          "col": 2
+        },
+        {
+          "preset": "simracing/tc_up",
+          "row": 1,
+          "col": 3
+        },
+        {
+          "preset": "simracing/ignition",
+          "row": 1,
+          "col": 4
+        },
+        {
+          "preset": "simracing/bias_rear",
+          "row": 2,
+          "col": 0
+        },
+        {
+          "preset": "simracing/bias_fwd",
+          "row": 2,
+          "col": 1
+        },
+        {
+          "preset": "simracing/map_down",
+          "row": 2,
+          "col": 2
+        },
+        {
+          "preset": "simracing/map_up",
+          "row": 2,
+          "col": 3
+        },
+        {
+          "preset": "simracing/starter",
+          "row": 2,
+          "col": 4
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

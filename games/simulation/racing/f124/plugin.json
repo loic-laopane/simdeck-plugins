@@ -1,0 +1,142 @@
+{
+  "id": "f124",
+  "name": "F1 24",
+  "category": "simracing",
+  "icon": "🏎️",
+  "color": "#E10600",
+  "description": "Lancement de F1 24 et page de commandes prête à l'emploi.",
+  "requires": [
+    "simracing"
+  ],
+  "notes": [
+    "Ces touches utilisent le schéma SimDeck (F13 à F24, combinées avec Ctrl / Maj / Alt) : des touches absentes des claviers, donc sans conflit. Associez-les une fois dans les contrôles du jeu (cliquez sur l'action dans le jeu puis appuyez sur la touche SimDeck avec « ▶ Tester »), ou remplacez-les par vos propres touches."
+  ],
+  "autoSwitch": {
+    "processName": "F1_24.exe"
+  },
+  "presets": [
+    {
+      "id": "launch",
+      "label": "Lancer F1 24",
+      "icon": "🏎️",
+      "color": "#E10600",
+      "description": "Lance le jeu via Steam.",
+      "actions": [
+        {
+          "type": "open",
+          "target": "steam://rungameid/2488620"
+        }
+      ],
+      "activeWhen": {
+        "type": "processRunning",
+        "processName": "F1_24.exe"
+      },
+      "activeStyle": {
+        "color": "#43A047",
+        "label": "F1 24 lancé"
+      }
+    },
+    {
+      "id": "quit",
+      "label": "Quitter le jeu",
+      "icon": "⏻",
+      "color": "#424242",
+      "description": "Appui long pour fermer le jeu.",
+      "longPressActions": [
+        {
+          "type": "kill",
+          "processName": "F1_24.exe"
+        }
+      ],
+      "actions": []
+    }
+  ],
+  "boards": [
+    {
+      "id": "main",
+      "name": "F1 24",
+      "rows": 3,
+      "cols": 5,
+      "buttons": [
+        {
+          "preset": "simracing/pit_limiter",
+          "row": 0,
+          "col": 0
+        },
+        {
+          "preset": "simracing/drs",
+          "row": 0,
+          "col": 1
+        },
+        {
+          "preset": "simracing/ers_down",
+          "row": 0,
+          "col": 2
+        },
+        {
+          "preset": "simracing/ers_up",
+          "row": 0,
+          "col": 3
+        },
+        {
+          "preset": "simracing/radio",
+          "row": 0,
+          "col": 4
+        },
+        {
+          "preset": "simracing/bias_rear",
+          "row": 1,
+          "col": 0
+        },
+        {
+          "preset": "simracing/bias_fwd",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "preset": "simracing/map_down",
+          "row": 1,
+          "col": 2
+        },
+        {
+          "preset": "simracing/map_up",
+          "row": 1,
+          "col": 3
+        },
+        {
+          "preset": "simracing/mfd_next",
+          "row": 1,
+          "col": 4
+        },
+        {
+          "preset": "simracing/look_left",
+          "row": 2,
+          "col": 0
+        },
+        {
+          "preset": "simracing/look_back",
+          "row": 2,
+          "col": 1
+        },
+        {
+          "preset": "simracing/look_right",
+          "row": 2,
+          "col": 2
+        },
+        {
+          "preset": "simracing/camera",
+          "row": 2,
+          "col": 3
+        },
+        {
+          "preset": "simracing/hud",
+          "row": 2,
+          "col": 4
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

@@ -1,0 +1,710 @@
+{
+  "schema": 1,
+  "plugins": [
+    {
+      "id": "ac",
+      "name": "Assetto Corsa",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🅰",
+      "color": "#B71C1C",
+      "author": "SimDeck",
+      "description": "Lancement de Assetto Corsa et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 2,
+      "boardCount": 1,
+      "capabilities": [
+        "kill",
+        "open"
+      ],
+      "path": "games/simulation/racing/ac/plugin.json",
+      "sha256": "dc9823973d5dc7be68be4ddee1a9d2f32e32946ff4ae48091d5e99827773e601",
+      "size": 3195
+    },
+    {
+      "id": "acc",
+      "name": "Assetto Corsa Competizione",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🏁",
+      "color": "#C62828",
+      "author": "SimDeck",
+      "description": "Lancement de Assetto Corsa Competizione et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 2,
+      "boardCount": 1,
+      "capabilities": [
+        "kill",
+        "open"
+      ],
+      "path": "games/simulation/racing/acc/plugin.json",
+      "sha256": "f670a63fcda32eda183325d36bd89ed2d91876aba0016103a1d71eadb5971ac8",
+      "size": 3307
+    },
+    {
+      "id": "acevo",
+      "name": "Assetto Corsa EVO",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🚗",
+      "color": "#AD1457",
+      "author": "SimDeck",
+      "description": "Lancement de Assetto Corsa EVO et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 1,
+      "boardCount": 1,
+      "capabilities": [
+        "open"
+      ],
+      "path": "games/simulation/racing/acevo/plugin.json",
+      "sha256": "9234f276c09a3fdb534f85a8b37208d62485ac40de415f45af21d01717396057",
+      "size": 2797
+    },
+    {
+      "id": "acrally",
+      "name": "Assetto Corsa Rally",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🌲",
+      "color": "#6D4C41",
+      "author": "SimDeck",
+      "description": "Lancement de Assetto Corsa Rally et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 1,
+      "boardCount": 1,
+      "capabilities": [
+        "open"
+      ],
+      "path": "games/simulation/racing/acrally/plugin.json",
+      "sha256": "061cdd472e5a6f4339084bea9b27e1616202a6b16b94d4d5176f47123cdce548",
+      "size": 2770
+    },
+    {
+      "id": "ams2",
+      "name": "Automobilista 2",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🇧🇷",
+      "color": "#2E7D32",
+      "author": "SimDeck",
+      "description": "Lancement de Automobilista 2 et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 2,
+      "boardCount": 1,
+      "capabilities": [
+        "kill",
+        "open"
+      ],
+      "path": "games/simulation/racing/ams2/plugin.json",
+      "sha256": "db69d3ad83106bd6badde70f443ef825c4d4e0fc8e0874d6e97b6392e50b103b",
+      "size": 3228
+    },
+    {
+      "id": "creative",
+      "name": "Création & navigateurs",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "apps",
+      "icon": "🎨",
+      "color": "#31A8FF",
+      "author": "SimDeck",
+      "description": "Photoshop, Paint, Chrome, Edge, Firefox.",
+      "default": false,
+      "requires": [],
+      "presetCount": 5,
+      "boardCount": 0,
+      "capabilities": [
+        "launch"
+      ],
+      "path": "apps/creative/plugin.json",
+      "sha256": "db948a322a976c7ecd88a020efb8fccbb6756e7cf43c4bed62fdb5d2a253897f",
+      "size": 1502
+    },
+    {
+      "id": "dcs",
+      "name": "DCS World",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "flightsim",
+      "icon": "🛦",
+      "color": "#0D47A1",
+      "author": "SimDeck",
+      "description": "Lancement de DCS World et page de commandes de vol.",
+      "default": false,
+      "requires": [
+        "flightsim"
+      ],
+      "presetCount": 1,
+      "boardCount": 1,
+      "capabilities": [
+        "open"
+      ],
+      "path": "games/simulation/flight/dcs/plugin.json",
+      "sha256": "6b62b9dff77cb21a1abd68eea355ccd31f4da841f65112e94d12496967beed49",
+      "size": 2562
+    },
+    {
+      "id": "f124",
+      "name": "F1 24",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🏎️",
+      "color": "#E10600",
+      "author": "SimDeck",
+      "description": "Lancement de F1 24 et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 2,
+      "boardCount": 1,
+      "capabilities": [
+        "kill",
+        "open"
+      ],
+      "path": "games/simulation/racing/f124/plugin.json",
+      "sha256": "2c2090e101e998e4c7023be682058a25ba4eac8f55165ffa21badb90c4e40f84",
+      "size": 3162
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "social",
+      "icon": "📘",
+      "color": "#1877F2",
+      "author": "SimDeck",
+      "description": "Raccourcis pour ouvrir Facebook dans le navigateur.",
+      "default": false,
+      "requires": [],
+      "presetCount": 2,
+      "boardCount": 0,
+      "capabilities": [
+        "open"
+      ],
+      "path": "social/facebook/plugin.json",
+      "sha256": "106d8452054bdb6ab54aab54266d60ff7595e56ee03ad3a2898c7243adb66245",
+      "size": 738
+    },
+    {
+      "id": "flightsim",
+      "name": "Flight sim – commandes communes",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "flightsim",
+      "icon": "✈️",
+      "color": "#1E88E5",
+      "author": "SimDeck",
+      "description": "Train, volets, frein de parking, pilote automatique, feux, trims, vues… pour tous les simulateurs de vol.",
+      "default": true,
+      "requires": [],
+      "presetCount": 24,
+      "boardCount": 2,
+      "capabilities": [],
+      "path": "games/simulation/flight/flightsim/plugin.json",
+      "sha256": "09083ec17db620d0cb86fefb3b5d0a7db10854b057e2651c5deeb7299efb6ec0",
+      "size": 11079
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "social",
+      "icon": "📸",
+      "color": "#E1306C",
+      "author": "SimDeck",
+      "description": "Raccourcis pour ouvrir Instagram dans le navigateur.",
+      "default": false,
+      "requires": [],
+      "presetCount": 2,
+      "boardCount": 0,
+      "capabilities": [
+        "open"
+      ],
+      "path": "social/instagram/plugin.json",
+      "sha256": "d46872ea38551581c5670c4cdc71ee48336c6f9bef254269c4d5891381b9a748",
+      "size": 756
+    },
+    {
+      "id": "iracing",
+      "name": "iRacing",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🏎️",
+      "color": "#1E2A78",
+      "author": "SimDeck",
+      "description": "Lancement de iRacing et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 10,
+      "boardCount": 1,
+      "capabilities": [
+        "kill",
+        "launch"
+      ],
+      "path": "games/simulation/racing/iracing/plugin.json",
+      "sha256": "83f82cb91173a97fbe911742217d6f989008e466889ec5912aba834cc8ca6459",
+      "size": 5497
+    },
+    {
+      "id": "kartkraft",
+      "name": "KartKraft",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🛞",
+      "color": "#F9A825",
+      "author": "SimDeck",
+      "description": "Lancement de KartKraft et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 1,
+      "boardCount": 1,
+      "capabilities": [
+        "open"
+      ],
+      "path": "games/simulation/racing/kartkraft/plugin.json",
+      "sha256": "0488daf387c66293c15e382161e6e8457512fbdfd1c0b9bacba50d7df199fda9",
+      "size": 2238
+    },
+    {
+      "id": "kick",
+      "name": "Kick",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "social",
+      "icon": "🟩",
+      "color": "#53FC18",
+      "author": "SimDeck",
+      "description": "Raccourcis pour ouvrir Kick dans le navigateur.",
+      "default": false,
+      "requires": [],
+      "presetCount": 2,
+      "boardCount": 0,
+      "capabilities": [
+        "open"
+      ],
+      "path": "social/kick/plugin.json",
+      "sha256": "5bf8bc52cbd8c775f7ef47258f60ad9e095c99fe3c9f78b76f4c86111d8d43f2",
+      "size": 721
+    },
+    {
+      "id": "lmu",
+      "name": "Le Mans Ultimate",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🏆",
+      "color": "#0D47A1",
+      "author": "SimDeck",
+      "description": "Lancement de Le Mans Ultimate et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 2,
+      "boardCount": 1,
+      "capabilities": [
+        "kill",
+        "open"
+      ],
+      "path": "games/simulation/racing/lmu/plugin.json",
+      "sha256": "5abb1b9927a10c23370ca5bc0ad551219c3591e3f0b88e09c2aa380c05d7db4f",
+      "size": 3252
+    },
+    {
+      "id": "msfs2020",
+      "name": "Microsoft Flight Simulator 2020",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "flightsim",
+      "icon": "🛫",
+      "color": "#0D47A1",
+      "author": "SimDeck",
+      "description": "Lancement de Microsoft Flight Simulator 2020 et page de commandes de vol.",
+      "default": false,
+      "requires": [
+        "flightsim"
+      ],
+      "presetCount": 1,
+      "boardCount": 1,
+      "capabilities": [
+        "open"
+      ],
+      "path": "games/simulation/flight/msfs2020/plugin.json",
+      "sha256": "319f4c612b096017abe78e502b8aab20f959f9886d2682d0e9fd41a8ba8ec9fe",
+      "size": 2636
+    },
+    {
+      "id": "msfs2024",
+      "name": "Microsoft Flight Simulator 2024",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "flightsim",
+      "icon": "🛫",
+      "color": "#0D47A1",
+      "author": "SimDeck",
+      "description": "Lancement de Microsoft Flight Simulator 2024 et page de commandes de vol.",
+      "default": false,
+      "requires": [
+        "flightsim"
+      ],
+      "presetCount": 1,
+      "boardCount": 1,
+      "capabilities": [
+        "open"
+      ],
+      "path": "games/simulation/flight/msfs2024/plugin.json",
+      "sha256": "272b5029ee71e0baeaa0bc74c2110e696cce661ef7a9ffdd85f9af08715682f0",
+      "size": 2644
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "streaming",
+      "icon": "🟩",
+      "color": "#76B900",
+      "author": "SimDeck",
+      "description": "Overlay NVIDIA App / GeForce Experience (raccourcis par défaut), panneau de configuration NVIDIA (Surround).",
+      "default": false,
+      "requires": [],
+      "presetCount": 4,
+      "boardCount": 0,
+      "capabilities": [
+        "open"
+      ],
+      "path": "streaming/nvidia/plugin.json",
+      "sha256": "08a4e14c79dc7df0fa72b3e214d45416b53976fa59e42d658b04f96ac6993346",
+      "size": 1812
+    },
+    {
+      "id": "obs",
+      "name": "OBS Studio",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "streaming",
+      "icon": "🎥",
+      "color": "#302E31",
+      "author": "SimDeck",
+      "description": "Board complet pour OBS : stream, enregistrement, replay, scènes, micro, mode studio.",
+      "default": false,
+      "requires": [],
+      "presetCount": 20,
+      "boardCount": 1,
+      "capabilities": [
+        "launch"
+      ],
+      "path": "streaming/obs/plugin.json",
+      "sha256": "5263a219068efa2ef5d86207191c04284aaf01af07c4e9a1a664345fa85119df",
+      "size": 9511
+    },
+    {
+      "id": "office",
+      "name": "Bureautique",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "apps",
+      "icon": "📝",
+      "color": "#185ABD",
+      "author": "SimDeck",
+      "description": "Word, Excel, PowerPoint, Outlook, Bloc-notes, Calculatrice.",
+      "default": false,
+      "requires": [],
+      "presetCount": 6,
+      "boardCount": 0,
+      "capabilities": [
+        "launch"
+      ],
+      "path": "apps/office/plugin.json",
+      "sha256": "1fbb35a6c63e6b58c5073063797d8a2aa712e3aef20ae6505984cd2ac16ecb24",
+      "size": 1669
+    },
+    {
+      "id": "pmr",
+      "name": "Project Motor Racing",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🏁",
+      "color": "#37474F",
+      "author": "SimDeck",
+      "description": "Lancement de Project Motor Racing et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 1,
+      "boardCount": 1,
+      "capabilities": [
+        "open"
+      ],
+      "path": "games/simulation/racing/pmr/plugin.json",
+      "sha256": "13ed7ad54e2aa648ca83628af37c95d838b6a8d5b636b1b089c667640571c569",
+      "size": 2824
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "social",
+      "icon": "👽",
+      "color": "#FF4500",
+      "author": "SimDeck",
+      "description": "Raccourcis pour ouvrir Reddit dans le navigateur.",
+      "default": false,
+      "requires": [],
+      "presetCount": 2,
+      "boardCount": 0,
+      "capabilities": [
+        "open"
+      ],
+      "path": "social/reddit/plugin.json",
+      "sha256": "e340e709fc73225ee13f60f69a1079aaaf634c3ad86b96749da608772525b773",
+      "size": 739
+    },
+    {
+      "id": "rf2",
+      "name": "rFactor 2",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🔧",
+      "color": "#1565C0",
+      "author": "SimDeck",
+      "description": "Lancement de rFactor 2 et page de commandes prête à l'emploi.",
+      "default": false,
+      "requires": [
+        "simracing"
+      ],
+      "presetCount": 2,
+      "boardCount": 1,
+      "capabilities": [
+        "kill",
+        "open"
+      ],
+      "path": "games/simulation/racing/rf2/plugin.json",
+      "sha256": "a3a8f9a9f89d53aed511df91e6e88c3c19e484ed42af83eda8270b0dcbc1a120",
+      "size": 3192
+    },
+    {
+      "id": "simracing",
+      "name": "Sim racing – commandes communes",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "simracing",
+      "icon": "🏁",
+      "color": "#E53935",
+      "author": "SimDeck",
+      "description": "Toutes les commandes utiles en course, compatibles avec tous les simulateurs : limiteur, contact, phares, ABS, TC, répartiteur, cartographie, caméras, radio…",
+      "default": true,
+      "requires": [],
+      "presetCount": 37,
+      "boardCount": 2,
+      "capabilities": [],
+      "path": "games/simulation/racing/simracing/plugin.json",
+      "sha256": "bed157fc865367466991d5db5ac7cb280b9dd7df6e0bb1e08abe87a05dfdc810",
+      "size": 16779
+    },
+    {
+      "id": "simtools",
+      "name": "Outils sim racing",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "apps",
+      "icon": "🧰",
+      "color": "#E65100",
+      "author": "SimDeck",
+      "description": "SimHub, Crew Chief, Steam, Discord… les compagnons indispensables d'une session.",
+      "default": false,
+      "requires": [],
+      "presetCount": 5,
+      "boardCount": 0,
+      "capabilities": [
+        "launch",
+        "open"
+      ],
+      "path": "apps/simtools/plugin.json",
+      "sha256": "2733eb7b62979a4a4ac3ced3f9366b6aadf53d62f5d527c8249ebb1f0ad1554d",
+      "size": 2335
+    },
+    {
+      "id": "streamlabs",
+      "name": "Streamlabs Desktop",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "streaming",
+      "icon": "🎬",
+      "color": "#31C3A2",
+      "author": "SimDeck",
+      "description": "Stream, enregistrement, replay, scènes et micro pour Streamlabs Desktop.",
+      "default": false,
+      "requires": [],
+      "presetCount": 10,
+      "boardCount": 1,
+      "capabilities": [],
+      "path": "streaming/streamlabs/plugin.json",
+      "sha256": "d65064cf48208837e6cf69b4786b28e559d914e4f147563e4779c1815867107b",
+      "size": 4922
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "social",
+      "icon": "🎵",
+      "color": "#111111",
+      "author": "SimDeck",
+      "description": "Raccourcis pour ouvrir TikTok dans le navigateur.",
+      "default": false,
+      "requires": [],
+      "presetCount": 2,
+      "boardCount": 0,
+      "capabilities": [
+        "open"
+      ],
+      "path": "social/tiktok/plugin.json",
+      "sha256": "e6de5658f8af9e2da03aa75bf3330cb1540ffa2f9a156d01f0e63cc3308de287",
+      "size": 738
+    },
+    {
+      "id": "twitch",
+      "name": "Twitch",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "social",
+      "icon": "🟣",
+      "color": "#9146FF",
+      "author": "SimDeck",
+      "description": "Raccourcis pour ouvrir Twitch dans le navigateur.",
+      "default": false,
+      "requires": [],
+      "presetCount": 3,
+      "boardCount": 0,
+      "capabilities": [
+        "open"
+      ],
+      "path": "social/twitch/plugin.json",
+      "sha256": "b7f697b010e551d11bf5fe6d917008f2361c20a26a41f10480e56ba1451934fc",
+      "size": 1016
+    },
+    {
+      "id": "windows",
+      "name": "Windows",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "windows",
+      "icon": "🪟",
+      "color": "#0078D4",
+      "author": "SimDeck",
+      "description": "Son, multimédia, explorateur, captures, paramètres, verrouillage, veille, redémarrage et arrêt du PC.",
+      "default": true,
+      "requires": [],
+      "presetCount": 20,
+      "boardCount": 1,
+      "capabilities": [
+        "command",
+        "open"
+      ],
+      "path": "system/windows/plugin.json",
+      "sha256": "a994923817d29a53ed479f75724b5affcb26448e461652ff12042d126fa36341",
+      "size": 8353
+    },
+    {
+      "id": "x",
+      "name": "X (Twitter)",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "social",
+      "icon": "𝕏",
+      "color": "#000000",
+      "author": "SimDeck",
+      "description": "Raccourcis pour ouvrir X (Twitter) dans le navigateur.",
+      "default": false,
+      "requires": [],
+      "presetCount": 2,
+      "boardCount": 0,
+      "capabilities": [
+        "open"
+      ],
+      "path": "social/x/plugin.json",
+      "sha256": "e6b5c2bb3a5d4dcfacd7af6ae9046ec2b4faa6723c22b52a8dee238f433b069e",
+      "size": 723
+    },
+    {
+      "id": "xplane12",
+      "name": "X-Plane 12",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "flightsim",
+      "icon": "🛩",
+      "color": "#0D47A1",
+      "author": "SimDeck",
+      "description": "Lancement de X-Plane 12 et page de commandes de vol.",
+      "default": false,
+      "requires": [
+        "flightsim"
+      ],
+      "presetCount": 1,
+      "boardCount": 1,
+      "capabilities": [
+        "open"
+      ],
+      "path": "games/simulation/flight/xplane12/plugin.json",
+      "sha256": "457782adabc3d6747ede63e805f02f1fd37b9ba93e2d34ac9b020679065ebf19",
+      "size": 2580
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "version": "1.0.0",
+      "minAppVersion": "1.1.0",
+      "category": "social",
+      "icon": "▶️",
+      "color": "#FF0000",
+      "author": "SimDeck",
+      "description": "Raccourcis pour ouvrir YouTube dans le navigateur.",
+      "default": false,
+      "requires": [],
+      "presetCount": 3,
+      "boardCount": 0,
+      "capabilities": [
+        "open"
+      ],
+      "path": "social/youtube/plugin.json",
+      "sha256": "a733509ba59c7a162118b4fe323d21a60a8316be363872f511c8f2dc5d905699",
+      "size": 989
+    }
+  ]
+}

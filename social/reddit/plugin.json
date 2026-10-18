@@ -1,0 +1,37 @@
+{
+  "id": "reddit",
+  "name": "Reddit",
+  "category": "social",
+  "icon": "👽",
+  "color": "#FF4500",
+  "description": "Raccourcis pour ouvrir Reddit dans le navigateur.",
+  "presets": [
+    {
+      "id": "home",
+      "label": "Reddit",
+      "icon": "👽",
+      "color": "#FF4500",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.reddit.com/"
+        }
+      ]
+    },
+    {
+      "id": "simracing",
+      "label": "r/simracing",
+      "icon": "🏁",
+      "color": "#FF4500",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.reddit.com/r/simracing/"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

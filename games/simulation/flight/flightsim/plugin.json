@@ -1,0 +1,586 @@
+{
+  "id": "flightsim",
+  "name": "Flight sim – commandes communes",
+  "category": "flightsim",
+  "icon": "✈️",
+  "color": "#1E88E5",
+  "default": true,
+  "description": "Train, volets, frein de parking, pilote automatique, feux, trims, vues… pour tous les simulateurs de vol.",
+  "notes": [
+    "Ces touches utilisent le schéma SimDeck (Alt + F13…F24 et Ctrl + Maj + F13…F24) : des touches absentes des claviers, donc sans conflit. Associez-les une fois dans les contrôles du jeu (cliquez sur l'action dans le jeu puis appuyez sur la touche SimDeck avec « ▶ Tester »), ou remplacez-les par vos propres touches."
+  ],
+  "presets": [
+    {
+      "id": "gear",
+      "label": "Train",
+      "icon": "🛬",
+      "color": "#F57C00",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f13"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "flaps_up",
+      "label": "Volets −",
+      "icon": "⬆",
+      "color": "#1E88E5",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f14"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "flaps_down",
+      "label": "Volets +",
+      "icon": "⬇",
+      "color": "#1E88E5",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f15"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "parking_brake",
+      "label": "Frein parking",
+      "icon": "🅿",
+      "color": "#E53935",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f16"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "spoilers",
+      "label": "Aérofreins",
+      "icon": "🪂",
+      "color": "#1E88E5",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f17"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "autopilot",
+      "label": "Pilote auto",
+      "icon": "🤖",
+      "color": "#43A047",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f18"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "ap_hdg",
+      "label": "AP cap",
+      "icon": "🧭",
+      "color": "#43A047",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f19"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "ap_alt",
+      "label": "AP altitude",
+      "icon": "📏",
+      "color": "#43A047",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f20"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "ap_nav",
+      "label": "AP NAV",
+      "icon": "🛰",
+      "color": "#43A047",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f21"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "ap_vs",
+      "label": "AP vitesse vert.",
+      "icon": "↕",
+      "color": "#43A047",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f22"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "reverse",
+      "label": "Inverseurs",
+      "icon": "🔄",
+      "color": "#F57C00",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f23"
+          ],
+          "mode": "down",
+          "holdMs": 60
+        }
+      ],
+      "releaseActions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f23"
+          ],
+          "mode": "up",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "atc",
+      "label": "ATC",
+      "icon": "📻",
+      "color": "#5E35B1",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "alt",
+            "f24"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "landing_lights",
+      "label": "Phares atterr.",
+      "icon": "💡",
+      "color": "#F9A825",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f13"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "nav_lights",
+      "label": "Feux de nav",
+      "icon": "🟢",
+      "color": "#F9A825",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f14"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "strobe",
+      "label": "Strobes",
+      "icon": "✨",
+      "color": "#F9A825",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f15"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "beacon",
+      "label": "Anticollision",
+      "icon": "🔴",
+      "color": "#F9A825",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f16"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "taxi_lights",
+      "label": "Feux de taxi",
+      "icon": "🔦",
+      "color": "#F9A825",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f17"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "trim_up",
+      "label": "Trim cabré",
+      "icon": "⤴",
+      "color": "#00838F",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f18"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "trim_down",
+      "label": "Trim piqué",
+      "icon": "⤵",
+      "color": "#00838F",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f19"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "view_cockpit",
+      "label": "Vue cockpit",
+      "icon": "🧑‍✈️",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f20"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "view_external",
+      "label": "Vue extérieure",
+      "icon": "🛩",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f21"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "map",
+      "label": "Carte",
+      "icon": "🗺",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f22"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "engine_start",
+      "label": "Démarrage moteur",
+      "icon": "🔥",
+      "color": "#E53935",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f23"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "pause",
+      "label": "Pause",
+      "icon": "⏸",
+      "color": "#424242",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "shift",
+            "f24"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    }
+  ],
+  "boards": [
+    {
+      "id": "flight",
+      "name": "Vol",
+      "rows": 3,
+      "cols": 5,
+      "buttons": [
+        {
+          "preset": "gear",
+          "row": 0,
+          "col": 0
+        },
+        {
+          "preset": "flaps_up",
+          "row": 0,
+          "col": 1
+        },
+        {
+          "preset": "flaps_down",
+          "row": 0,
+          "col": 2
+        },
+        {
+          "preset": "spoilers",
+          "row": 0,
+          "col": 3
+        },
+        {
+          "preset": "parking_brake",
+          "row": 0,
+          "col": 4
+        },
+        {
+          "preset": "autopilot",
+          "row": 1,
+          "col": 0
+        },
+        {
+          "preset": "ap_hdg",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "preset": "ap_alt",
+          "row": 1,
+          "col": 2
+        },
+        {
+          "preset": "ap_nav",
+          "row": 1,
+          "col": 3
+        },
+        {
+          "preset": "ap_vs",
+          "row": 1,
+          "col": 4
+        },
+        {
+          "preset": "trim_up",
+          "row": 2,
+          "col": 0
+        },
+        {
+          "preset": "trim_down",
+          "row": 2,
+          "col": 1
+        },
+        {
+          "preset": "reverse",
+          "row": 2,
+          "col": 2
+        },
+        {
+          "preset": "atc",
+          "row": 2,
+          "col": 3
+        },
+        {
+          "preset": "engine_start",
+          "row": 2,
+          "col": 4
+        }
+      ]
+    },
+    {
+      "id": "lights",
+      "name": "Feux & vues",
+      "rows": 2,
+      "cols": 5,
+      "buttons": [
+        {
+          "preset": "landing_lights",
+          "row": 0,
+          "col": 0
+        },
+        {
+          "preset": "nav_lights",
+          "row": 0,
+          "col": 1
+        },
+        {
+          "preset": "strobe",
+          "row": 0,
+          "col": 2
+        },
+        {
+          "preset": "beacon",
+          "row": 0,
+          "col": 3
+        },
+        {
+          "preset": "taxi_lights",
+          "row": 0,
+          "col": 4
+        },
+        {
+          "preset": "view_cockpit",
+          "row": 1,
+          "col": 0
+        },
+        {
+          "preset": "view_external",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "preset": "map",
+          "row": 1,
+          "col": 2
+        },
+        {
+          "preset": "pause",
+          "row": 1,
+          "col": 3
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

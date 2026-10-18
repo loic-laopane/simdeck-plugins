@@ -1,0 +1,37 @@
+{
+  "id": "tiktok",
+  "name": "TikTok",
+  "category": "social",
+  "icon": "🎵",
+  "color": "#111111",
+  "description": "Raccourcis pour ouvrir TikTok dans le navigateur.",
+  "presets": [
+    {
+      "id": "home",
+      "label": "TikTok",
+      "icon": "🎵",
+      "color": "#111111",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.tiktok.com/"
+        }
+      ]
+    },
+    {
+      "id": "studio",
+      "label": "TikTok Studio",
+      "icon": "🎬",
+      "color": "#111111",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.tiktok.com/tiktokstudio"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

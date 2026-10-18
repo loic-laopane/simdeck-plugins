@@ -1,0 +1,49 @@
+{
+  "id": "twitch",
+  "name": "Twitch",
+  "category": "social",
+  "icon": "🟣",
+  "color": "#9146FF",
+  "description": "Raccourcis pour ouvrir Twitch dans le navigateur.",
+  "presets": [
+    {
+      "id": "home",
+      "label": "Twitch",
+      "icon": "🟣",
+      "color": "#9146FF",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.twitch.tv/"
+        }
+      ]
+    },
+    {
+      "id": "dashboard",
+      "label": "Gestionnaire de stream",
+      "icon": "🎛",
+      "color": "#772CE8",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://dashboard.twitch.tv/stream-manager"
+        }
+      ]
+    },
+    {
+      "id": "following",
+      "label": "Chaînes suivies",
+      "icon": "❤️",
+      "color": "#772CE8",
+      "actions": [
+        {
+          "type": "open",
+          "target": "https://www.twitch.tv/directory/following"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

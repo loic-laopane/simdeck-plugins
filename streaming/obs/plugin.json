@@ -1,0 +1,497 @@
+{
+  "id": "obs",
+  "name": "OBS Studio",
+  "category": "streaming",
+  "icon": "🎥",
+  "color": "#302E31",
+  "description": "Board complet pour OBS : stream, enregistrement, replay, scènes, micro, mode studio.",
+  "notes": [
+    "Associez chaque touche dans OBS : Fichier → Paramètres → Raccourcis clavier (cliquez dans le champ puis appuyez sur « ▶ Tester » dans SimDeck)."
+  ],
+  "presets": [
+    {
+      "id": "launch",
+      "label": "Lancer OBS",
+      "icon": "🎥",
+      "color": "#302E31",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "C:\\Program Files\\obs-studio\\bin\\64bit\\obs64.exe",
+          "skipIfRunning": "obs64.exe"
+        }
+      ],
+      "activeWhen": {
+        "type": "processRunning",
+        "processName": "obs64.exe"
+      },
+      "activeStyle": {
+        "color": "#43A047"
+      }
+    },
+    {
+      "id": "stream_start",
+      "label": "Démarrer le stream",
+      "icon": "🔴",
+      "color": "#E53935",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f13"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "stream_stop",
+      "label": "Arrêter le stream",
+      "icon": "⏹",
+      "color": "#424242",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f14"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "rec_start",
+      "label": "Démarrer l'enregistrement",
+      "icon": "⏺",
+      "color": "#E53935",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f15"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "rec_stop",
+      "label": "Arrêter l'enregistrement",
+      "icon": "⏹",
+      "color": "#424242",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f16"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "rec_pause",
+      "label": "Pause enregistrement",
+      "icon": "⏸",
+      "color": "#F57C00",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f17"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "replay_save",
+      "label": "Sauver le replay",
+      "icon": "💾",
+      "color": "#1E88E5",
+      "description": "Enregistre le tampon de relecture.",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f18"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "mic_mute",
+      "label": "Couper le micro",
+      "icon": "🎙",
+      "color": "#5E35B1",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f19"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "desktop_mute",
+      "label": "Couper le son bureau",
+      "icon": "🔇",
+      "color": "#5E35B1",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f20"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "studio_mode",
+      "label": "Mode studio",
+      "icon": "🎚",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f21"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "transition",
+      "label": "Transition",
+      "icon": "🔀",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f22"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "screenshot",
+      "label": "Capture d'écran",
+      "icon": "📷",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "f23"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "scene_1",
+      "label": "Scène 1",
+      "icon": "1️⃣",
+      "color": "#3949AB",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "shift",
+            "f13"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "scene_2",
+      "label": "Scène 2",
+      "icon": "2️⃣",
+      "color": "#3949AB",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "shift",
+            "f14"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "scene_3",
+      "label": "Scène 3",
+      "icon": "3️⃣",
+      "color": "#3949AB",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "shift",
+            "f15"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "scene_4",
+      "label": "Scène 4",
+      "icon": "4️⃣",
+      "color": "#3949AB",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "shift",
+            "f16"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "scene_5",
+      "label": "Scène 5",
+      "icon": "5️⃣",
+      "color": "#3949AB",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "shift",
+            "f17"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "scene_6",
+      "label": "Scène 6",
+      "icon": "6️⃣",
+      "color": "#3949AB",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "shift",
+            "f18"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "scene_7",
+      "label": "Scène 7",
+      "icon": "7️⃣",
+      "color": "#3949AB",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "shift",
+            "f19"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    },
+    {
+      "id": "scene_8",
+      "label": "Scène 8",
+      "icon": "8️⃣",
+      "color": "#3949AB",
+      "actions": [
+        {
+          "type": "hotkey",
+          "keys": [
+            "ctrl",
+            "alt",
+            "shift",
+            "f20"
+          ],
+          "mode": "press",
+          "holdMs": 60
+        }
+      ]
+    }
+  ],
+  "boards": [
+    {
+      "id": "main",
+      "name": "OBS",
+      "rows": 4,
+      "cols": 5,
+      "buttons": [
+        {
+          "preset": "launch",
+          "row": 0,
+          "col": 0
+        },
+        {
+          "preset": "stream_start",
+          "row": 0,
+          "col": 1
+        },
+        {
+          "preset": "stream_stop",
+          "row": 0,
+          "col": 2
+        },
+        {
+          "preset": "rec_start",
+          "row": 0,
+          "col": 3
+        },
+        {
+          "preset": "rec_stop",
+          "row": 0,
+          "col": 4
+        },
+        {
+          "preset": "scene_1",
+          "row": 1,
+          "col": 0
+        },
+        {
+          "preset": "scene_2",
+          "row": 1,
+          "col": 1
+        },
+        {
+          "preset": "scene_3",
+          "row": 1,
+          "col": 2
+        },
+        {
+          "preset": "scene_4",
+          "row": 1,
+          "col": 3
+        },
+        {
+          "preset": "rec_pause",
+          "row": 1,
+          "col": 4
+        },
+        {
+          "preset": "scene_5",
+          "row": 2,
+          "col": 0
+        },
+        {
+          "preset": "scene_6",
+          "row": 2,
+          "col": 1
+        },
+        {
+          "preset": "scene_7",
+          "row": 2,
+          "col": 2
+        },
+        {
+          "preset": "scene_8",
+          "row": 2,
+          "col": 3
+        },
+        {
+          "preset": "replay_save",
+          "row": 2,
+          "col": 4
+        },
+        {
+          "preset": "mic_mute",
+          "row": 3,
+          "col": 0
+        },
+        {
+          "preset": "desktop_mute",
+          "row": 3,
+          "col": 1
+        },
+        {
+          "preset": "studio_mode",
+          "row": 3,
+          "col": 2
+        },
+        {
+          "preset": "transition",
+          "row": 3,
+          "col": 3
+        },
+        {
+          "preset": "screenshot",
+          "row": 3,
+          "col": 4
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}

@@ -1,0 +1,76 @@
+{
+  "id": "creative",
+  "name": "Création & navigateurs",
+  "category": "apps",
+  "icon": "🎨",
+  "color": "#31A8FF",
+  "description": "Photoshop, Paint, Chrome, Edge, Firefox.",
+  "notes": [
+    "Si un programme n'est pas installé à l'emplacement par défaut, modifiez le chemin dans l'action « Lancer un programme »."
+  ],
+  "presets": [
+    {
+      "id": "photoshop",
+      "label": "Photoshop",
+      "icon": "🖌",
+      "color": "#001E36",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "photoshop.exe"
+        }
+      ]
+    },
+    {
+      "id": "paint",
+      "label": "Paint",
+      "icon": "🎨",
+      "color": "#546E7A",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "mspaint.exe"
+        }
+      ]
+    },
+    {
+      "id": "chrome",
+      "label": "Chrome",
+      "icon": "🌐",
+      "color": "#4285F4",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "chrome.exe"
+        }
+      ]
+    },
+    {
+      "id": "edge",
+      "label": "Edge",
+      "icon": "🌊",
+      "color": "#0078D7",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "msedge.exe"
+        }
+      ]
+    },
+    {
+      "id": "firefox",
+      "label": "Firefox",
+      "icon": "🦊",
+      "color": "#FF7139",
+      "actions": [
+        {
+          "type": "launch",
+          "path": "firefox.exe"
+        }
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "author": "SimDeck",
+  "minAppVersion": "1.1.0"
+}
