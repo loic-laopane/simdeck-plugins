@@ -16,7 +16,7 @@ index.json                                 Liste de tous les plugins (générée
 tools/build_index.py                       Validation + génération de l'index
 ```
 
-Le nom du dossier est l'identifiant du plugin, et le dossier parent détermine sa catégorie.
+Le nom du dossier est l'identifiant du plugin, et le dossier parent détermine sa catégorie. Un dossier `images/` peut contenir une image par touche (`<id de touche>.png`, 128×128 conseillé, 256×256 maximum).
 
 ## Plugins disponibles
 
