@@ -65,12 +65,13 @@ Chaque touche d'un plugin peut avoir une image, rangée dans le dossier `images/
 ```
 streaming/obs/plugin.json
 streaming/obs/images/stream_start.png          image de la touche « stream_start »
-streaming/obs/images/stream_start@active.png   (facultatif) image quand la touche est « active »
+streaming/obs/images/stream_start@active.webp  (facultatif) image quand la touche est « active » (.png ou .webp)
 ```
 
 | Règle | |
 |-------|--|
-| Format | PNG ou WebP (transparence conseillée) |
+| Format | PNG ou WebP (transparence conseillée), extension en minuscules |
+| Proportions | Carrée de préférence (une image non carrée est affichée sans déformation) |
 | Taille conseillée | **128×128 px** : une image plus petite est acceptée (avertissement), mais moins nette |
 | Taille maximale | **256×256 px** : au-delà, la CI refuse l'image |
 | Poids maximal | 256 Ko |

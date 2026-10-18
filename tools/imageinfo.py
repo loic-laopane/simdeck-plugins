@@ -7,7 +7,14 @@ import struct
 
 def image_info(data: bytes) -> tuple[str, int, int] | None:
     """Return (format, width, height), or None if the data is not a supported image."""
-    if data[:8] == b"\x89PNG\r\n\x1a\n" and data[12:16] == b"IHDR":
+    try:
+        return _image_info(data)
+    except (struct.error, IndexError):
+        return None
+
+
+def _image_info(data: bytes) -> tuple[str, int, int] | None:
+    if data[:8] == b"\x89PNG\r\n\x1a\n" and data[12:16] == b"IHDR" and len(data) >= 24:
         w, h = struct.unpack(">II", data[16:24])
         return "png", w, h
     if data[:4] == b"RIFF" and data[8:12] == b"WEBP":

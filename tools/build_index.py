@@ -72,6 +72,7 @@ IMAGE_RECOMMENDED = 128
 IMAGE_MAX = 256
 IMAGE_MAX_BYTES = 256 * 1024
 IMAGE_FORMATS = {"png": ".png", "webp": ".webp"}
+IGNORED_FILES = {"Thumbs.db", "desktop.ini"}
 IMAGE_NAME_RE = re.compile(r"(?P<preset>[A-Za-z0-9_-]+)(?P<active>@active)?\.(?P<ext>png|webp)")
 
 
@@ -235,11 +236,20 @@ def collect_images(p: dict, rel: str, errors: list[str], warnings: list[str]) ->
         return []
     presets = {x["id"] for x in p["presets"]}
     images, seen = [], set()
+    if folder.is_symlink():
+        errors.append(f"{folder.relative_to(ROOT).as_posix()} : les liens symboliques sont interdits")
+        return []
     for path in sorted(folder.iterdir()):
         irel = path.relative_to(ROOT).as_posix()
+        if path.name.startswith(".") or path.name in IGNORED_FILES:
+            continue  # system files (never committed, see .gitignore)
+        if path.is_symlink():
+            errors.append(f"{irel} : les liens symboliques sont interdits")
+            continue
         m = IMAGE_NAME_RE.fullmatch(path.name)
         if not m or not path.is_file():
-            errors.append(f"{irel} : nom invalide (attendu <id de touche>.png, .webp, ou <id>@active.png)")
+            errors.append(f"{irel} : nom invalide (attendu <id de touche>.png ou .webp, extension en minuscules, "
+                          "ou <id>@active.png pour l'état actif)")
             continue
         if m["preset"] not in presets:
             errors.append(f"{irel} : aucune touche « {m['preset']} » dans ce plugin")
